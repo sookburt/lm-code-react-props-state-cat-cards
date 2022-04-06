@@ -93,14 +93,23 @@ function App() {
 					favFoods: ['milk'],
 					birthYear: 2021,
 					catIndex: 0
-			 }
+			 },
+			 {
+				name: "Captain Catface",
+				species: "Sea Cattain",
+				favFoods: ["fish, rum"],
+				birthYear: 2016,
+				catIndex: 0
+			}
 	 ]
 	);
+
+	const catCount = cats.length;
 
 	return (
 		<>
 			<Navbar />
-			<Header />
+			<Header catCount={ catCount }/>
 
 			<main>
 				<div className='cards__wrapper'>

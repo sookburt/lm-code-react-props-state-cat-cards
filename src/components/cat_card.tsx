@@ -12,6 +12,7 @@ import cat9 from '../assets/images/cat9.jpg';
 import cat10 from '../assets/images/cat10.jpg';
 import cat11 from '../assets/images/cat11.jpg';
 import cat12 from '../assets/images/cat12.jpg';
+import { isPropertySignature } from 'typescript';
 
 const images = [
 	{
@@ -119,14 +120,14 @@ const CatCard : React.FC<CatCardProps> = (data) =>
     <p className="card__text">Favourite Food(s): {data.favFoods}</p>
     <p className="card__text">Birth Year: {data.birthYear}</p>
 
-    <CatImage 
+    {data.catIndex < images.length && (<CatImage 
       image={images[data.catIndex].image} 
       altText={images[data.catIndex].altText}
       licenceType={images[data.catIndex].licenceType}
       licenceUrl={images[data.catIndex].licenceUrl}
       attributionName={images[data.catIndex].attributionName}
       attributionUrl={images[data.catIndex].attributionUrl}
-    />
+    />)}
   </div>
 
 export default CatCard;
