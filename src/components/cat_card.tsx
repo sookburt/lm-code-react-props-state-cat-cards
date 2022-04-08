@@ -12,7 +12,6 @@ import cat9 from '../assets/images/cat9.jpg';
 import cat10 from '../assets/images/cat10.jpg';
 import cat11 from '../assets/images/cat11.jpg';
 import cat12 from '../assets/images/cat12.jpg';
-import { isPropertySignature } from 'typescript';
 
 const images = [
 	{
@@ -113,21 +112,25 @@ const images = [
 	}
 ];
 
-const CatCard : React.FC<CatCardProps> = (data) => 
-  <div className="card">
-    <h3 className="card__text card__header">{data.name}</h3>
-    <p className="card__text">Species: {data.species}</p>
-    <p className="card__text">Favourite Food(s): {data.favFoods}</p>
-    <p className="card__text">Birth Year: {data.birthYear}</p>
+const CatCard : React.FC<CatCardProps> = ({ name, species, favFoods, birthYear, catIndex }) => {
 
-    {data.catIndex < images.length && (<CatImage 
-      image={images[data.catIndex].image} 
-      altText={images[data.catIndex].altText}
-      licenceType={images[data.catIndex].licenceType}
-      licenceUrl={images[data.catIndex].licenceUrl}
-      attributionName={images[data.catIndex].attributionName}
-      attributionUrl={images[data.catIndex].attributionUrl}
-    />)}
-  </div>
+  return (
+		<div className="card">
+			<h3 className="card__text card__header">{name}</h3>
+			<p className="card__text">Species: {species}</p>
+			<p className="card__text">Favourite Food(s): {favFoods}</p>
+			<p className="card__text">Birth Year: {birthYear}</p>
+
+			{catIndex < images.length && (<CatImage 
+				image={images[catIndex].image} 
+				altText={images[catIndex].altText}
+				licenceType={images[catIndex].licenceType}
+				licenceUrl={images[catIndex].licenceUrl}
+				attributionName={images[catIndex].attributionName}
+				attributionUrl={images[catIndex].attributionUrl}
+			/>)}
+		</div>
+	);
+}
 
 export default CatCard;
