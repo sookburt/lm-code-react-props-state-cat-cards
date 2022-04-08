@@ -112,16 +112,21 @@ const images = [
 	}
 ];
 
+const stringify = (foods: Array<string>):string => {
+	const stringified = foods.map(food => `${food.trim()}, `).join('');
+	return stringified.trim().substring(0, stringified.lastIndexOf(","));
+}
+
 const CatCard : React.FC<CatCardProps> = ({ name, species, favFoods, birthYear, catIndex }) => {
 
   return (
 		<div className="card">
 			<h3 className="card__text card__header">{name}</h3>
 			<p className="card__text">Species: {species}</p>
-			<p className="card__text">Favourite Food(s): {favFoods}</p>
+			<p className="card__text">Favourite Food(s): {stringify(favFoods)}</p>
 			<p className="card__text">Birth Year: {birthYear}</p>
 
-			{catIndex < images.length && (<CatImage 
+			{catIndex !== undefined && catIndex < images.length && (<CatImage 
 				image={images[catIndex].image} 
 				altText={images[catIndex].altText}
 				licenceType={images[catIndex].licenceType}
