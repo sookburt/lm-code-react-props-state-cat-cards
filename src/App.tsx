@@ -8,6 +8,7 @@ import CatCard from './components/cat_card';
 import catData from './data/catData';
 import Dog from './data/dog';
 import dogData from './data/dog-data';
+import Form from './components/form';
 
 
 function App() {
@@ -36,6 +37,9 @@ function App() {
 								birthYear={cat.birthYear} 
 								catIndex={index} />)
 					}					
+					</div>
+					<div className='cards__wrapper'>
+						<Form cats={cats} setter={setCats} />
 					</div>
 					<div className='cards__wrapper'>
 					{
