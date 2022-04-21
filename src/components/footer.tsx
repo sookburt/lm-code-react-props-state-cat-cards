@@ -1,6 +1,5 @@
 import icon from '../assets/cat_icon.png';
 
-// remember we can write components as functions that return JSX.Element
 function Footer(): JSX.Element {
 	return (
 		<footer>

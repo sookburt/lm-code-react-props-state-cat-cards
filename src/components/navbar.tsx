@@ -1,4 +1,4 @@
-// remember we can write components as functions that return JSX.Element
+
 function Navbar() : JSX.Element {
     return (
         <nav className="nav__container">

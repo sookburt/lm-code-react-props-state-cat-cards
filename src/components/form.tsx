@@ -15,7 +15,7 @@ const Form : React.FC<FormProps> = ({ cats, setter }) => {
   const changeCatSpecies = (species:string) => {setCatSpecies(species) };
   const [catFavFoods, setCatFavFoods ] = useState<string>('');
   const changeCatFavFoods = (foods:string) => {setCatFavFoods(foods) };
-  const [catBirthYear, setCatBirthYear ] = useState<number>(0);
+  const [catBirthYear, setCatBirthYear ] = useState<number>(20);
   const changeCatBirthYear = (inputYear:string) => { 
       const year:number = parseInt(inputYear);
       setCatBirthYear(year);
@@ -31,7 +31,7 @@ const Form : React.FC<FormProps> = ({ cats, setter }) => {
       id: getId(),
       name: catName,
       species: catSpecies,
-      favFoods: [catFavFoods],
+      favFoods: catFavFoods.split(','),
       birthYear: catBirthYear,
       catIndex: 0
     }) as Cat;
@@ -45,7 +45,7 @@ const Form : React.FC<FormProps> = ({ cats, setter }) => {
     changeCatName('');
     changeCatSpecies('');
     changeCatFavFoods('');
-    changeCatBirthYear('0');
+    changeCatBirthYear('20');
   }
 
   return (
