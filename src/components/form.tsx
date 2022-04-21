@@ -22,23 +22,30 @@ const Form : React.FC<FormProps> = ({ cats, setter }) => {
   };
   const saveCat = () => {
     const cat = buildCat() as Cat;
-    cats.push(cat);
-    setter(cats);
+    setter([...cats, cat]);
+    resetForm();
   };
 
   const buildCat = ():Cat => {
-    return (`{
-      id: ${getId()},
-      name: ${catName},
-      species: ${catSpecies},
-      favFoods: ${catFavFoods},
-      birthYear: ${catBirthYear};
+    return ({
+      id: getId(),
+      name: catName,
+      species: catSpecies,
+      favFoods: [catFavFoods],
+      birthYear: catBirthYear,
       catIndex: 0
-    }`) as any;
+    }) as Cat;
   };
 
   const getId = () => {
     return uuidv4();
+  }
+
+  const resetForm = () => {
+    changeCatName('');
+    changeCatSpecies('');
+    changeCatFavFoods('');
+    changeCatBirthYear('0');
   }
 
   return (
